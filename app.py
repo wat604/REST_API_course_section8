@@ -6,7 +6,7 @@ from security import authenticate
 from resources.user import UserRegister
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
-from db import db
+# from db import db
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
@@ -17,10 +17,6 @@ app.config["JWT_SECRET_KEY"] = "bjaoibf"
 jwt = JWTManager(app)
 
 api = Api(app)
-
-@app.before_first_request
-def create_tables():
-    db.create_all()
 
 # Create a route to authenticate your users and return JWTs.
 # The create_access_token() functin is used to actually generate the JWT
