@@ -36,7 +36,7 @@ class Item(Resource):
             item.save_to_db()
         except:
             import traceback
-            return {"message": "An error occurred inserting the item.", "traceback": traceback.print_exc()}, 500
+            return {"message": "An error occurred inserting the item.", "traceback": traceback.format_exc()}, 500
 
         return item.json(), 201
 
