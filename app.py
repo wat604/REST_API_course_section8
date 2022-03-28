@@ -11,7 +11,7 @@ from resources.store import Store, StoreList
 # from db import db
 
 uri = os.getenv("DATABASE_URL", "sqlite://data.db")
-if uri.startwith("postgres://"):
+if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
 
 app = Flask(__name__)
